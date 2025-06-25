@@ -6,7 +6,7 @@
 
 # Chart.js Wrapper for Vaadin
 
-A Chart.js Wrapper for Vaadin
+A Chart.js 4+ Wrapper for Vaadin
 
 ![demo](assets/demo.png)
 
