@@ -79,6 +79,7 @@ public class MinimalisticDemo extends VerticalLayout
 		this.runDummyLoad();
 	}
 	
+	@SuppressWarnings("java:S110") // Not caused by us!
 	public static class DummyChartContainer extends ChartContainer
 	{
 		public void show()
