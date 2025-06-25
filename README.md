@@ -13,55 +13,54 @@ A Chart.js 4+ Wrapper for Vaadin
 ## Usage
 
 1. Define a custom chart or use the ``showChart``-method directly.<br/>Example:
-  ```java
-  public class ExampleChartContainer extends ChartContainer
-  {
-    public void show(Data data)
+    ```java
+    public class ExampleChartContainer extends ChartContainer
     {
-      BarData data = ...; // Build the bar chart data from the handed over data
-      this.showChart(new BarChart(data)
-        .setOptions(new BarOptions()
-          .setResponsive(true)
-          .setMaintainAspectRatio(false)
-          .setPlugins(new Plugins()
-            .setTitle(new Title()
-              .setText("Age")
-              .setDisplay(true))))
-        .toJson());
+      public void show(Data data)
+      {
+        BarData data = ...; // Build the bar chart data from the handed over data
+        this.showChart(new BarChart(data)
+          .setOptions(new BarOptions()
+            .setResponsive(true)
+            .setMaintainAspectRatio(false)
+            .setPlugins(new Plugins()
+              .setTitle(new Title()
+                .setText("Age")
+                .setDisplay(true))))
+          .toJson());
+      }
     }
-  }
-  ```
-
+    ```
 2. Add the chart to your view/component:
-  ```java
-  public class ExampleView extends VerticalLayout
-  {
-    private final ExampleChartContainer chart = new ExampleChartContainer();
-    
-    public ExampleView()
+    ```java
+    public class ExampleView extends VerticalLayout
     {
-      this.add(this.chart);
-      // ...
-    }
-    
-    private void loadDataAndShowChart()
-    {
-      this.chart.showLoading();
+      private final ExampleChartContainer chart = new ExampleChartContainer();
       
-      UI ui = UI.getCurrent();
-      CompletableFuture.runAsync(() -> {
-        try {
-          var data = ...; // Load some data from the backend
-          // You may also convert the data here and call showChart
-          ui.access(() -> this.chart.show(data));
-        } catch (Exception ex) {
-          // Display the error message when loading fails
-          ui.access(() -> this.chart.showFailed(ex.getMessage()));
-        }
-      });
-    }	
-  }
-  ```
+      public ExampleView()
+      {
+        this.add(this.chart);
+        // ...
+      }
+      
+      private void loadDataAndShowChart()
+      {
+        this.chart.showLoading();
+        
+        UI ui = UI.getCurrent();
+        CompletableFuture.runAsync(() -> {
+          try {
+            var data = ...; // Load some data from the backend
+            // You may also convert the data here and call showChart
+            ui.access(() -> this.chart.show(data));
+          } catch (Exception ex) {
+            // Display the error message when loading fails
+            ui.access(() -> this.chart.showFailed(ex.getMessage()));
+          }
+        });
+      }	
+    }
+    ```
 
 For more usage examples please have a look at [the demo](./vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
 
