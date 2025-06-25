@@ -1,4 +1,4 @@
-package software.xdev.vaadin.chartjs.example;
+package software.xdev.vaadin.chartjs.demo;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -11,20 +11,28 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.Lumo;
 
+import software.xdev.chartjs.model.charts.BarChart;
+import software.xdev.chartjs.model.data.BarData;
+import software.xdev.chartjs.model.dataset.BarDataset;
+import software.xdev.chartjs.model.options.BarOptions;
+import software.xdev.chartjs.model.options.Plugins;
+import software.xdev.chartjs.model.options.Title;
+import software.xdev.vaadin.chartjs.ChartContainer;
 import software.xdev.vaadin.chartjs.resources.js.src.ChartThemeManager;
 
 
-@Route("")
-public class ExampleView extends VerticalLayout
+@Route(MinimalisticDemo.NAV)
+public class MinimalisticDemo extends VerticalLayout
 {
-	private final ExampleChartContainer chart = new ExampleChartContainer();
+	public static final String NAV = "/minimalistic";
 	
-	public ExampleView()
+	private final DummyChartContainer chart = new DummyChartContainer();
+	
+	public MinimalisticDemo()
 	{
 		this.setSizeFull();
 		this.chart.setHeight("50%");
 		
-		this.chart.setId("test");
 		this.add(
 			this.chart,
 			new Button("Run dummy load", ev -> this.runDummyLoad()),
@@ -69,5 +77,36 @@ public class ExampleView extends VerticalLayout
 	protected void onAttach(final AttachEvent attachEvent)
 	{
 		this.runDummyLoad();
+	}
+	
+	public static class DummyChartContainer extends ChartContainer
+	{
+		public void show()
+		{
+			this.showChart(new BarChart(new BarData()
+				.addLabels("2020", "2021", "2022", "2023")
+				.addDataset(new BarDataset()
+					.setBackgroundColor("#c02222")
+					.setLabel("Hans")
+					.addData(1)
+					.addData(2)
+					.addData(3)
+					.addData(4))
+				.addDataset(new BarDataset()
+					.setBackgroundColor("orange")
+					.setLabel("Franz")
+					.addData(2)
+					.addData(3)
+					.addData(4)
+					.addData(5)))
+				.setOptions(new BarOptions()
+					.setResponsive(true)
+					.setMaintainAspectRatio(false)
+					.setPlugins(new Plugins()
+						.setTitle(new Title()
+							.setText("Age")
+							.setDisplay(true))))
+				.toJson());
+		}
 	}
 }

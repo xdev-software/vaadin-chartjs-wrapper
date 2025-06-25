@@ -23,5 +23,5 @@ public final class ChartThemeManager
 	
 	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "chartThemeManager.js";
 	
-	public static final String TRY_UPDATE_CHART_JS_THEMING = "tryUpdateChartJsTheming(%s)";
+	public static final String TRY_UPDATE_CHART_JS_THEMING = "xVaadinChartjsWrapper.tryUpdateChartJsTheming(%s)";
 }

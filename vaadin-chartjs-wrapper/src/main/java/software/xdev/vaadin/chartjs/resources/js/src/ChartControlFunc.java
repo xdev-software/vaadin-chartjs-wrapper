@@ -15,14 +15,15 @@
  */
 package software.xdev.vaadin.chartjs.resources.js.src;
 
-public final class ClientToServerUpdater
+public final class ChartControlFunc
 {
-	private ClientToServerUpdater()
+	private ChartControlFunc()
 	{
 	}
 	
-	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "clientToServerUpdater.js";
+	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "chartControlFunc.js";
 	
-	public static final String CHECK_IF_EXISTS_ON_CLIENT_AND_UPDATE_SERVER =
-		"checkIfExistsOnClientAndUpdateServer('%s')";
+	public static final String BUILD_CHART = "xVaadinChartjsWrapper.buildChart('%s','%s',%s)";
+	
+	public static final String DESTROY_CHART = "xVaadinChartjsWrapper.tryDestroyChart('%s')";
 }

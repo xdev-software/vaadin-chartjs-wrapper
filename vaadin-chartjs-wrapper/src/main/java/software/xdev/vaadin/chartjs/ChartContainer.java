@@ -31,13 +31,13 @@ import software.xdev.vaadin.chartjs.loading.DefaultLoadingErrorComponent;
 import software.xdev.vaadin.chartjs.loading.DefaultLoadingLoadComponent;
 import software.xdev.vaadin.chartjs.loading.LoadingErrorComponent;
 import software.xdev.vaadin.chartjs.resources.js.JSLibs;
-import software.xdev.vaadin.chartjs.resources.js.src.ChartFunc;
+import software.xdev.vaadin.chartjs.resources.js.src.ChartControlFunc;
 import software.xdev.vaadin.chartjs.resources.js.src.ChartThemeManager;
 
 
 @JsModule(JSLibs.CHARTJS)
 @JsModule(ChartThemeManager.LOCATION)
-@JsModule(ChartFunc.LOCATION)
+@JsModule(ChartControlFunc.LOCATION)
 @CssImport(ChartContainerStyles.LOCATION)
 public abstract class ChartContainer extends Div implements ChartCom
 {
@@ -120,21 +120,21 @@ public abstract class ChartContainer extends Div implements ChartCom
 			.withText(problemsText);
 	}
 	
-	protected void displayChart(final String payload)
+	public void showChart(final String payloadJson)
 	{
-		Objects.requireNonNull(payload);
+		Objects.requireNonNull(payloadJson);
 		
 		this.clear(true);
 		this.chartJSDiv.setVisible(true);
 		
 		final String thisid = this.getChartJSDivId();
-		this.executeJS(String.format(ChartFunc.BUILD_CHART, thisid, thisid + "Canvas", payload));
+		this.executeJS(String.format(ChartControlFunc.BUILD_CHART, thisid, thisid + "Canvas", payloadJson));
 	}
 	
 	protected void tryDestroyChart()
 	{
 		final String thisid = this.getChartJSDivId();
-		this.executeJS(String.format(ChartFunc.DESTROY_CHART, thisid + "Canvas"));
+		this.executeJS(String.format(ChartControlFunc.DESTROY_CHART, thisid + "Canvas"));
 	}
 	
 	protected void executeJS(final String js)

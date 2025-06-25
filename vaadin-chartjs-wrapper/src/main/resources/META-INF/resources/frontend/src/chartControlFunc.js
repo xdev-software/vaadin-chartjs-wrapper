@@ -1,6 +1,8 @@
+if(window.xVaadinChartjsWrapper == undefined) window.xVaadinChartjsWrapper = {};
+
 /** https://stackoverflow.com/a/46522991 */
-if(!window.dataStorage) {
-  window.dataStorage = {
+if(!window.xVaadinChartjsWrapper.dataStorage) {
+  window.xVaadinChartjsWrapper.dataStorage = {
     _storage: new WeakMap(),
     put: function (element, key, obj) {
         if (!this._storage.has(element)) {
@@ -24,9 +26,9 @@ if(!window.dataStorage) {
   }
 }
 
-window.buildChart = function buildChart(parentId, canvasId, jsonpayload) {
+window.xVaadinChartjsWrapper.buildChart = function buildChart(parentId, canvasId, jsonpayload) {
   console.debug("buildChart: running");
-  tryDestroyChart(canvasId);
+  window.xVaadinChartjsWrapper.tryDestroyChart(canvasId);
   
   let parent = document.getElementById(parentId);
   if (parent == null) {
@@ -54,7 +56,7 @@ window.buildChart = function buildChart(parentId, canvasId, jsonpayload) {
   }, 1);
 }
 
-window.tryDestroyChart = function tryDestroyChart(canvasId) {
+window.xVaadinChartjsWrapper.tryDestroyChart = function tryDestroyChart(canvasId) {
   let canvas = document.getElementById(canvasId);
   
   if(canvas == null) {
@@ -75,7 +77,7 @@ window.tryDestroyChart = function tryDestroyChart(canvasId) {
 
 
 try {
-  window.tryUpdateChartJsTheming();
+  window.xVaadinChartjsWrapper.tryUpdateChartJsTheming();
 } catch {
   // Theming might not be available
 }
