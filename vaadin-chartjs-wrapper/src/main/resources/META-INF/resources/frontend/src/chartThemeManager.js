@@ -6,12 +6,12 @@ window.xVaadinChartjsWrapper.tryUpdateChartJsTheming = function tryUpdateChartJs
   }
 
   if(typeof Chart === 'undefined') {
-    console.debug("chartJs is not defined/loaded");
+    console.debug("Chart.js is not defined/loaded");
     window.xVaadinChartjsWrapper.updatingChartJsThemingRequired = true;
     return;
   }
-
-  console.debug("Updating chartJs theming");
+  
+  console.debug("Updating Chart.js theming");
   try {
     Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--lumo-body-text-color");
     Chart.defaults.borderColor = getComputedStyle(document.documentElement).getPropertyValue("--lumo-contrast-20pct");
@@ -19,7 +19,7 @@ window.xVaadinChartjsWrapper.tryUpdateChartJsTheming = function tryUpdateChartJs
     window.xVaadinChartjsWrapper.updatingChartJsThemingRequired = false;
   } catch(e) {
     window.xVaadinChartjsWrapper.updatingChartJsThemingRequired = true;
-    console.debug("Failed to update chartJs theming", e);
+    console.debug("Failed to update Chart.js theming", e);
   }
 }
 
