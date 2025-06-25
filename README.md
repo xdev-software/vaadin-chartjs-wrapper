@@ -4,7 +4,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=xdev-software_vaadin-chartjs-wrapper&metric=alert_status)](https://sonarcloud.io/dashboard?id=xdev-software_vaadin-chartjs-wrapper)
 ![Vaadin 24+](https://img.shields.io/badge/Vaadin%20Platform/Flow-24+-00b4f0)
 
-# Chart.js Wrapper for Vaadin
+# <img src="https://www.chartjs.org/media/logo.svg" height="38" /> Chart.js Wrapper for Vaadin
 
 A Chart.js 4+ Wrapper for Vaadin
 
@@ -12,6 +12,7 @@ A Chart.js 4+ Wrapper for Vaadin
 
 ## Usage
 
+0. You may want to use a Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>Otherwise you have to write the JSON yourself.
 1. Define a custom chart or use the ``showChart``-method directly.<br/>Example:
     ```java
     public class ExampleChartContainer extends ChartContainer
