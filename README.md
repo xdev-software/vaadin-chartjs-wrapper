@@ -13,7 +13,6 @@ A Chart.js 4+ Wrapper for Vaadin
 ## Usage
 
 1. Define a custom chart or use the ``showChart``-method directly.<br/>Example:
-
   ```java
   public class ExampleChartContainer extends ChartContainer
   {
@@ -34,7 +33,6 @@ A Chart.js 4+ Wrapper for Vaadin
   ```
 
 2. Add the chart to your view/component:
-
   ```java
   public class ExampleView extends VerticalLayout
   {
