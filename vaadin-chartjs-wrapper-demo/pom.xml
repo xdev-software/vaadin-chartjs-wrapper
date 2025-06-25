@@ -6,11 +6,11 @@
 
 	<parent>
 		<groupId>software.xdev</groupId>
-		<artifactId>vaadin-chartjs-root</artifactId>
+		<artifactId>vaadin-chartjs-wrapper-root</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>vaadin-chartjs-demo</artifactId>
+	<artifactId>vaadin-chartjs-wrapper-demo</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
@@ -70,7 +70,7 @@
 		</dependency>
 		<dependency>
 			<groupId>software.xdev</groupId>
-			<artifactId>vaadin-chartjs</artifactId>
+			<artifactId>vaadin-chartjs-wrapper</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 

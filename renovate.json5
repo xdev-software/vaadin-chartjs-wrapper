@@ -4,7 +4,7 @@
   "packageRules": [
     {
       "description": "Ignore project internal dependencies",
-      "packagePattern": "^software.xdev:vaadin-chartjs",
+      "packagePattern": "^software.xdev:vaadin-chartjs-wrapper",
       "datasources": [
         "maven"
       ],
