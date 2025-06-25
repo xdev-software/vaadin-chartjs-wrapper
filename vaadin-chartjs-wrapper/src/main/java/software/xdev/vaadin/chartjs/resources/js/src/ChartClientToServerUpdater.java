@@ -24,5 +24,5 @@ public final class ChartClientToServerUpdater
 	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "chartClientToServerUpdater.js";
 	
 	public static final String CHECK_IF_EXISTS_ON_CLIENT_AND_UPDATE_SERVER =
-		"xVaadinChartjsWrapper.checkIfExistsOnClientAndUpdateServer('%s')";
+		ChartJSSources.FUNCTION_PREFIX + "checkIfExistsOnClientAndUpdateServer('%s')";
 }

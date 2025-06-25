@@ -23,7 +23,7 @@ public final class ChartControlFunc
 	
 	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "chartControlFunc.js";
 	
-	public static final String BUILD_CHART = "xVaadinChartjsWrapper.buildChart('%s','%s',%s)";
+	public static final String BUILD_CHART = ChartJSSources.FUNCTION_PREFIX + "buildChart('%s','%s',%s)";
 	
-	public static final String DESTROY_CHART = "xVaadinChartjsWrapper.tryDestroyChart('%s')";
+	public static final String DESTROY_CHART = ChartJSSources.FUNCTION_PREFIX + "tryDestroyChart('%s')";
 }

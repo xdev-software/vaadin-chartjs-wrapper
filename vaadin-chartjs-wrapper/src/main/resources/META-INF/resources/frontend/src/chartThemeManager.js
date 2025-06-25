@@ -1,7 +1,7 @@
 if(window.xVaadinChartjsWrapper == undefined) window.xVaadinChartjsWrapper = {};
 
 window.xVaadinChartjsWrapper.tryUpdateChartJsTheming = function tryUpdateChartJsTheming(force) {
-  if(!updatingChartJsThemingRequired && !force) {
+  if(!window.xVaadinChartjsWrapper.updatingChartJsThemingRequired && !force) {
     return;
   }
 
