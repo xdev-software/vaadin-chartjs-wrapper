@@ -1,4 +1,6 @@
-window.checkIfExistsOnClientAndUpdateServer = function checkIfExistsOnClientAndUpdateServer(id) {
+if(window.xVaadinChartjsWrapper == undefined) window.xVaadinChartjsWrapper = {};
+
+window.xVaadinChartjsWrapper.checkIfExistsOnClientAndUpdateServer = function checkIfExistsOnClientAndUpdateServer(id) {
 	(function myLoop (i) {          
 		setTimeout(function () {   
 			var element = document.getElementById(id);

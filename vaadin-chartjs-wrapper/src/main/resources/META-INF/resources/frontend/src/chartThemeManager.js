@@ -1,24 +1,26 @@
-window.tryUpdateChartJsTheming = function tryUpdateChartJsTheming(force) {
-  if(!updatingChartJsThemingRequired && !force) {
+if(window.xVaadinChartjsWrapper == undefined) window.xVaadinChartjsWrapper = {};
+
+window.xVaadinChartjsWrapper.tryUpdateChartJsTheming = function tryUpdateChartJsTheming(force) {
+  if(!window.xVaadinChartjsWrapper.updatingChartJsThemingRequired && !force) {
     return;
   }
 
   if(typeof Chart === 'undefined') {
-    console.debug("chartJs is not defined/loaded");
-    window.updatingChartJsThemingRequired = true;
+    console.debug("Chart.js is not defined/loaded");
+    window.xVaadinChartjsWrapper.updatingChartJsThemingRequired = true;
     return;
   }
-
-  console.debug("Updating chartJs theming");
+  
+  console.debug("Updating Chart.js theming");
   try {
     Chart.defaults.color = getComputedStyle(document.documentElement).getPropertyValue("--lumo-body-text-color");
     Chart.defaults.borderColor = getComputedStyle(document.documentElement).getPropertyValue("--lumo-contrast-20pct");
 
-    window.updatingChartJsThemingRequired = false;
+    window.xVaadinChartjsWrapper.updatingChartJsThemingRequired = false;
   } catch(e) {
-    window.updatingChartJsThemingRequired = true;
-    console.debug("Failed to update chartJs theming", e);
+    window.xVaadinChartjsWrapper.updatingChartJsThemingRequired = true;
+    console.debug("Failed to update Chart.js theming", e);
   }
 }
 
-window.updatingChartJsThemingRequired = true;
+window.xVaadinChartjsWrapper.updatingChartJsThemingRequired = true;

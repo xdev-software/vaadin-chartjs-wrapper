@@ -19,7 +19,7 @@ import com.vaadin.flow.component.ClientCallable;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.dom.Element;
 
-import software.xdev.vaadin.chartjs.resources.js.src.ClientToServerUpdater;
+import software.xdev.vaadin.chartjs.resources.js.src.ChartClientToServerUpdater;
 
 
 /**
@@ -30,7 +30,7 @@ import software.xdev.vaadin.chartjs.resources.js.src.ClientToServerUpdater;
  *
  * @implNote internal/original: TIMELINE-709/2020-09-01
  */
-@JsModule(ClientToServerUpdater.LOCATION)
+@JsModule(ChartClientToServerUpdater.LOCATION)
 public abstract class ClientToServerUpdateableChartContainer extends ChartContainer
 {
 	@ClientCallable
@@ -53,7 +53,7 @@ public abstract class ClientToServerUpdateableChartContainer extends ChartContai
 	public ClientToServerUpdateableChartContainer scheduleUpdateViaScript()
 	{
 		final String js = this.maybeWrapForErrorFeedback(String.format(
-			ClientToServerUpdater.CHECK_IF_EXISTS_ON_CLIENT_AND_UPDATE_SERVER,
+			ChartClientToServerUpdater.CHECK_IF_EXISTS_ON_CLIENT_AND_UPDATE_SERVER,
 			this.getChartJSDivId()));
 		
 		final Element el = new Element("script");

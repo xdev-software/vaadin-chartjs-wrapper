@@ -22,4 +22,6 @@ public final class ChartJSSources
 	}
 	
 	public static final String BASE_LOCATION = "./src/";
+	
+	public static final String FUNCTION_PREFIX = "window.xVaadinChartjsWrapper.";
 }

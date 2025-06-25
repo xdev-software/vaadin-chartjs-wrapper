@@ -15,17 +15,15 @@
  */
 package software.xdev.vaadin.chartjs.resources.js.src;
 
-public final class ChartFunc
+public final class ChartControlFunc
 {
-	private ChartFunc()
+	private ChartControlFunc()
 	{
 	}
 	
-	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "chartfunc.js";
+	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "chartControlFunc.js";
 	
-	public static final String BUILD_CHART = "buildChart('%s','%s',%s)";
-	/**
-	 * CleanUp
-	 */
-	public static final String DESTROY_CHART = "tryDestroyChart('%s')";
+	public static final String BUILD_CHART = ChartJSSources.FUNCTION_PREFIX + "buildChart('%s','%s',%s)";
+	
+	public static final String DESTROY_CHART = ChartJSSources.FUNCTION_PREFIX + "tryDestroyChart('%s')";
 }

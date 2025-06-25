@@ -15,14 +15,14 @@
  */
 package software.xdev.vaadin.chartjs.resources.js.src;
 
-public final class ClientToServerUpdater
+public final class ChartClientToServerUpdater
 {
-	private ClientToServerUpdater()
+	private ChartClientToServerUpdater()
 	{
 	}
 	
-	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "clientToServerUpdater.js";
+	public static final String LOCATION = ChartJSSources.BASE_LOCATION + "chartClientToServerUpdater.js";
 	
 	public static final String CHECK_IF_EXISTS_ON_CLIENT_AND_UPDATE_SERVER =
-		"checkIfExistsOnClientAndUpdateServer('%s')";
+		ChartJSSources.FUNCTION_PREFIX + "checkIfExistsOnClientAndUpdateServer('%s')";
 }

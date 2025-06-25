@@ -1,7 +1,9 @@
+if(window.xVaadinChartjsWrapper == undefined) window.xVaadinChartjsWrapper = {};
+
 /** https://stackoverflow.com/a/46522991 */
-if(!window.dataStorage) {
-  window.dataStorage = {
-    _storage: new WeakMap(),
+if(!window.xVaadinChartjsWrapper.dataStorage) {
+  window.xVaadinChartjsWrapper.dataStorage = {
+    _storage: new WeakMap(), /* This is important to not cause a memory leak */
     put: function (element, key, obj) {
         if (!this._storage.has(element)) {
             this._storage.set(element, new Map());
@@ -24,20 +26,20 @@ if(!window.dataStorage) {
   }
 }
 
-window.buildChart = function buildChart(parentId, canvasId, jsonpayload) {
+window.xVaadinChartjsWrapper.buildChart = function buildChart(parentId, canvasId, jsonpayload) {
   console.debug("buildChart: running");
-  tryDestroyChart(canvasId);
+  window.xVaadinChartjsWrapper.tryDestroyChart(canvasId);
   
   let parent = document.getElementById(parentId);
   if (parent == null) {
     console.log("buildChart: parent was null!");
     return;
   }
-
+  
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
-
+  
   let canvas = document.createElement("canvas");
   canvas.id = canvasId;
 
@@ -45,24 +47,20 @@ window.buildChart = function buildChart(parentId, canvasId, jsonpayload) {
 
   let ctx = canvas.getContext('2d');
 
-  // Run async due to https://bugzilla.mozilla.org/show_bug.cgi?id=1792860
-  setTimeout(() => {
-    let chart = new Chart(ctx, jsonpayload);
+  let chart = new Chart(ctx, jsonpayload);
 
-    // Add chart to canvas
-    dataStorage.put(document.getElementById(canvasId), 'chart-data', chart);
-  }, 1);
+  // Add chart to canvas
+  window.xVaadinChartjsWrapper.dataStorage.put(document.getElementById(canvasId), 'chart-data', chart);
 }
 
-window.tryDestroyChart = function tryDestroyChart(canvasId) {
+window.xVaadinChartjsWrapper.tryDestroyChart = function tryDestroyChart(canvasId) {
   let canvas = document.getElementById(canvasId);
-  
   if(canvas == null) {
     console.debug(`tryDestroyChart: Canvas[id=${canvasId}] was null!`);
     return;
   }
   
-  let chart = dataStorage.get(canvas, 'chart-data');
+  let chart = window.xVaadinChartjsWrapper.dataStorage.get(canvas, 'chart-data');
   
   if(chart == null) {
       console.debug(`tryDestroyChart: Chart in Canvas[id=${canvasId}] was null!`);
@@ -75,7 +73,7 @@ window.tryDestroyChart = function tryDestroyChart(canvasId) {
 
 
 try {
-  window.tryUpdateChartJsTheming();
+  window.xVaadinChartjsWrapper.tryUpdateChartJsTheming();
 } catch {
   // Theming might not be available
 }
