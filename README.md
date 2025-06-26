@@ -1,4 +1,4 @@
-[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0?logo=vaadin)](https://vaadin.com/directory/component/vaadin-chartjs-wrapper)
+[![Published on Vaadin Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0?logo=vaadin)](https://vaadin.com/directory/component/chartjs-wrapper-for-vaadin)
 [![Latest version](https://img.shields.io/maven-central/v/software.xdev/vaadin-chartjs-wrapper?logo=apache%20maven)](https://mvnrepository.com/artifact/software.xdev/vaadin-chartjs-wrapper)
 [![Build](https://img.shields.io/github/actions/workflow/status/xdev-software/vaadin-chartjs-wrapper/check-build.yml?branch=develop)](https://github.com/xdev-software/vaadin-chartjs-wrapper/actions/workflows/check-build.yml?query=branch%3Adevelop)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=xdev-software_vaadin-chartjs-wrapper&metric=alert_status)](https://sonarcloud.io/dashboard?id=xdev-software_vaadin-chartjs-wrapper)
@@ -6,13 +6,43 @@
 
 # <img src="https://www.chartjs.org/media/logo.svg" height="38" /> Chart.js Wrapper for Vaadin
 
-A Chart.js 4+ Wrapper for Vaadin
+A [Chart.js](https://www.chartjs.org/) 4+ Wrapper for Vaadin
 
 ![demo](assets/demo.png)
 
 ## Usage
 
-0. You may want to use a Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>Otherwise you have to write the JSON yourself.
+For more and detailed usage examples please have a look at [the demo](./vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
+
+### Minimal
+
+```java
+// Assumes that this code is in some kind of Vaadin component or view
+ChartContainer chart = new ChartContainer();
+this.add(chart);
+
+chart.showChart(
+  "{\"data\":{\"labels\":[\"A\",\"B\"],\"datasets\":[{\"data\":[1,2],\"label\":\"X\"}]},\"type\":\"bar\"}");
+
+// Or utilizing chartjs-java-model
+chart.showChart(new BarChart(new BarData()
+  .addLabels("A", "B")
+  .addDataset(new BarDataset()
+    .setLabel("X")
+    .addData(1)
+    .addData(2)))
+  .toJson());
+```
+
+### Recommended
+
+1. Use a Java model of Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>
+Otherwise you have to write the JSON yourself.
+2. Optionally derive classes for your charts (from e.g. ``ChartContainer``) that also handle the data-to-JSON conversion logic.<br/>
+Therefore you can encapsulate the components properly, for example like this: ``FetchFromBackendService.class → Model for chart → ChartContainer.class → Build JSON and show chart``
+
+<details><summary>Here is a example how the code could look (click to expand)</summary>
+
 1. Define a custom chart or use the ``showChart``-method directly.<br/>Example:
     ```java
     public class ExampleChartContainer extends ChartContainer
@@ -63,7 +93,7 @@ A Chart.js 4+ Wrapper for Vaadin
     }
     ```
 
-For more usage examples please have a look at [the demo](./vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
+</details>
 
 ## Installation
 [Installation guide for the latest release](https://github.com/xdev-software/vaadin-chartjs-wrapper/releases/latest#Installation)
@@ -90,3 +120,5 @@ See the [contributing guide](./CONTRIBUTING.md) for detailed instructions on how
 
 ## Dependencies and Licenses
 View the [license of the current project](LICENSE) or the [summary including all dependencies](https://xdev-software.github.io/vaadin-chartjs-wrapper/dependencies)
+
+<sub>Disclaimer: This is not an official Chart.js product and not associated</sub>

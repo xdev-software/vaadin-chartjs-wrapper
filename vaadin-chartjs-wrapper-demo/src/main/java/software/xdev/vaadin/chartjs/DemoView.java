@@ -14,6 +14,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import software.xdev.vaadin.chartjs.demo.ClientToServerUpdateableDemo;
+import software.xdev.vaadin.chartjs.demo.FunctionalityShowcaseDemo;
 import software.xdev.vaadin.chartjs.demo.MinimalisticDemo;
 
 
@@ -53,7 +54,13 @@ public class DemoView extends Composite<VerticalLayout>
 			new Example(
 				MinimalisticDemo.NAV,
 				"Minimalistic",
-				"Showcasing the simplest form of using ChartJS"
+				"Showcasing the simplest form of using Chart.js"
+			),
+			new Example(
+				FunctionalityShowcaseDemo.NAV,
+				"Functionality showcase",
+				"Showcases most functionality, including lazy-loaded data, displaying errors & problems "
+					+ "and the dark mode 🌙"
 			),
 			new Example(
 				ClientToServerUpdateableDemo.NAV,
