@@ -91,4 +91,4 @@ See the [contributing guide](./CONTRIBUTING.md) for detailed instructions on how
 ## Dependencies and Licenses
 View the [license of the current project](LICENSE) or the [summary including all dependencies](https://xdev-software.github.io/vaadin-chartjs-wrapper/dependencies)
 
-<sub>Disclaimer: This is not an official ChartJS product and not associated</sub>
+<sub>Disclaimer: This is not an official Chart.js product and not associated</sub>
