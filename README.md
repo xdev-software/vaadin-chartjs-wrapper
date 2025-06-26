@@ -4,7 +4,7 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=xdev-software_vaadin-chartjs-wrapper&metric=alert_status)](https://sonarcloud.io/dashboard?id=xdev-software_vaadin-chartjs-wrapper)
 ![Vaadin 24+](https://img.shields.io/badge/Vaadin%20Platform/Flow-24+-00b4f0)
 
-# Chart.js Wrapper for Vaadin
+# <img src="https://www.chartjs.org/media/logo.svg" height="38" /> Chart.js Wrapper for Vaadin
 
 A Chart.js 4+ Wrapper for Vaadin
 
@@ -12,58 +12,56 @@ A Chart.js 4+ Wrapper for Vaadin
 
 ## Usage
 
+0. You may want to use a Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>Otherwise you have to write the JSON yourself.
 1. Define a custom chart or use the ``showChart``-method directly.<br/>Example:
-
-  ```java
-  public class ExampleChartContainer extends ChartContainer
-  {
-    public void show(Data data)
+    ```java
+    public class ExampleChartContainer extends ChartContainer
     {
-      BarData data = ...; // Build the bar chart data from the handed over data
-      this.showChart(new BarChart(data)
-        .setOptions(new BarOptions()
-          .setResponsive(true)
-          .setMaintainAspectRatio(false)
-          .setPlugins(new Plugins()
-            .setTitle(new Title()
-              .setText("Age")
-              .setDisplay(true))))
-        .toJson());
+      public void show(Data data)
+      {
+        BarData data = ...; // Build the bar chart data from the handed over data
+        this.showChart(new BarChart(data)
+          .setOptions(new BarOptions()
+            .setResponsive(true)
+            .setMaintainAspectRatio(false)
+            .setPlugins(new Plugins()
+              .setTitle(new Title()
+                .setText("Age")
+                .setDisplay(true))))
+          .toJson());
+      }
     }
-  }
-  ```
-
+    ```
 2. Add the chart to your view/component:
-
-  ```java
-  public class ExampleView extends VerticalLayout
-  {
-    private final ExampleChartContainer chart = new ExampleChartContainer();
-    
-    public ExampleView()
+    ```java
+    public class ExampleView extends VerticalLayout
     {
-      this.add(this.chart);
-      // ...
-    }
-    
-    private void loadDataAndShowChart()
-    {
-      this.chart.showLoading();
+      private final ExampleChartContainer chart = new ExampleChartContainer();
       
-      UI ui = UI.getCurrent();
-      CompletableFuture.runAsync(() -> {
-        try {
-          var data = ...; // Load some data from the backend
-          // You may also convert the data here and call showChart
-          ui.access(() -> this.chart.show(data));
-        } catch (Exception ex) {
-          // Display the error message when loading fails
-          ui.access(() -> this.chart.showFailed(ex.getMessage()));
-        }
-      });
-    }	
-  }
-  ```
+      public ExampleView()
+      {
+        this.add(this.chart);
+        // ...
+      }
+      
+      private void loadDataAndShowChart()
+      {
+        this.chart.showLoading();
+        
+        UI ui = UI.getCurrent();
+        CompletableFuture.runAsync(() -> {
+          try {
+            var data = ...; // Load some data from the backend
+            // You may also convert the data here and call showChart
+            ui.access(() -> this.chart.show(data));
+          } catch (Exception ex) {
+            // Display the error message when loading fails
+            ui.access(() -> this.chart.showFailed(ex.getMessage()));
+          }
+        });
+      }	
+    }
+    ```
 
 For more usage examples please have a look at [the demo](./vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
 

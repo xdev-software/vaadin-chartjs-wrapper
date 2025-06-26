@@ -15,6 +15,9 @@
  */
 package software.xdev.vaadin.chartjs;
 
+/**
+ * Interface for communicating with charts.
+ */
 public interface ChartCom
 {
 	void showLoading();

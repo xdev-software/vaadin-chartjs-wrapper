@@ -31,17 +31,13 @@ import software.xdev.vaadin.chartjs.resources.js.src.ChartClientToServerUpdater;
  * @implNote internal/original: TIMELINE-709/2020-09-01
  */
 @JsModule(ChartClientToServerUpdater.LOCATION)
+@SuppressWarnings("java:S110") // Tell that to Vaadin, not me
 public abstract class ClientToServerUpdateableChartContainer extends ChartContainer
 {
 	@ClientCallable
 	public void updateFromClient()
 	{
 		this.update();
-	}
-	
-	protected String maybeWrapForErrorFeedback(final String js)
-	{
-		return js;
 	}
 	
 	/**
@@ -52,9 +48,11 @@ public abstract class ClientToServerUpdateableChartContainer extends ChartContai
 	 */
 	public ClientToServerUpdateableChartContainer scheduleUpdateViaScript()
 	{
-		final String js = this.maybeWrapForErrorFeedback(String.format(
-			ChartClientToServerUpdater.CHECK_IF_EXISTS_ON_CLIENT_AND_UPDATE_SERVER,
-			this.getChartJSDivId()));
+		final String js = this.wrapJsFunc.apply(
+			this,
+			String.format(
+				ChartClientToServerUpdater.CHECK_IF_EXISTS_ON_CLIENT_AND_UPDATE_SERVER,
+				this.getChartJSDivId()));
 		
 		final Element el = new Element("script");
 		el.setAttribute("type", "text/javascript");

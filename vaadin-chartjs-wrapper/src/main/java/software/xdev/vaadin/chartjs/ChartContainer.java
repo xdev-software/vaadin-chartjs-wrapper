@@ -17,12 +17,13 @@ package software.xdev.vaadin.chartjs;
 
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.CssImport;
 import com.vaadin.flow.component.dependency.JsModule;
 import com.vaadin.flow.component.html.Div;
-import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.shared.Tooltip;
 import com.vaadin.flow.theme.lumo.LumoUtility;
@@ -39,19 +40,26 @@ import software.xdev.vaadin.chartjs.resources.js.src.ChartThemeManager;
 @JsModule(ChartThemeManager.LOCATION)
 @JsModule(ChartControlFunc.LOCATION)
 @CssImport(ChartContainerStyles.LOCATION)
+@SuppressWarnings("java:S1948") // UI classes will never be serialized due to security
 public abstract class ChartContainer extends Div implements ChartCom
 {
 	protected Component loading = new DefaultLoadingLoadComponent();
 	protected Component error = new DefaultLoadingErrorComponent();
 	protected Div chartJSDiv = new Div();
 	
-	protected Icon icoProblemsIndicator = VaadinIcon.WARNING.create();
+	protected Component problemsIndicator = VaadinIcon.WARNING.create();
+	
+	protected BiConsumer<Component, String> problemsIndicatorToolTipFunc =
+		(comp, msg) -> Tooltip.forComponent(comp).withText(msg);
+	protected BiFunction<ChartContainer, String, String> wrapJsFunc = (self, js) -> js;
+	protected BiConsumer<ChartContainer, String> executeJsFunc =
+		(self, js) -> self.getElement().executeJs(js);
 	
 	protected ChartContainer()
 	{
 		this.loading.addClassName(ChartContainerStyles.LOADING_COMPONENT_CLASS);
 		this.error.addClassName(ChartContainerStyles.ERROR_COMPONENT_CLASS);
-		this.icoProblemsIndicator.addClassName(ChartContainerStyles.PROBLEM_INDICATOR_CLASS);
+		this.problemsIndicator.addClassName(ChartContainerStyles.PROBLEM_INDICATOR_CLASS);
 		
 		this.chartJSDiv.addClassNames(
 			ChartContainerStyles.DIV_CLASS,
@@ -67,7 +75,7 @@ public abstract class ChartContainer extends Div implements ChartCom
 	
 	protected String createChartJSDivId()
 	{
-		return "chartjsdiv" + UUID.randomUUID();
+		return "chartjsdiv-" + UUID.randomUUID();
 	}
 	
 	public String getChartJSDivId()
@@ -115,9 +123,11 @@ public abstract class ChartContainer extends Div implements ChartCom
 	
 	public void showProblemsIndicator(final String problemsText)
 	{
-		this.add(this.icoProblemsIndicator);
-		Tooltip.forComponent(this.icoProblemsIndicator)
-			.withText(problemsText);
+		this.add(this.problemsIndicator);
+		if(this.problemsIndicatorToolTipFunc != null)
+		{
+			this.problemsIndicatorToolTipFunc.accept(this.problemsIndicator, problemsText);
+		}
 	}
 	
 	public void showChart(final String payloadJson)
@@ -139,7 +149,7 @@ public abstract class ChartContainer extends Div implements ChartCom
 	
 	protected void executeJS(final String js)
 	{
-		this.getElement().executeJs(js);
+		this.executeJsFunc.accept(this, this.wrapJsFunc.apply(this, js));
 	}
 	
 	// region Getter + Setter
@@ -173,14 +183,45 @@ public abstract class ChartContainer extends Div implements ChartCom
 		this.chartJSDiv = chartJSDiv;
 	}
 	
-	public Icon getIcoProblemsIndicator()
+	public Component getProblemsIndicator()
 	{
-		return this.icoProblemsIndicator;
+		return this.problemsIndicator;
 	}
 	
-	public void setIcoProblemsIndicator(final Icon icoProblemsIndicator)
+	public void setProblemsIndicator(final Component problemsIndicator)
 	{
-		this.icoProblemsIndicator = icoProblemsIndicator;
+		this.problemsIndicator = problemsIndicator;
 	}
+	
+	public BiConsumer<Component, String> getProblemsIndicatorToolTipFunc()
+	{
+		return this.problemsIndicatorToolTipFunc;
+	}
+	
+	public void setProblemsIndicatorToolTipFunc(final BiConsumer<Component, String> problemsIndicatorToolTipFunc)
+	{
+		this.problemsIndicatorToolTipFunc = problemsIndicatorToolTipFunc;
+	}
+	
+	public BiFunction<ChartContainer, String, String> getWrapJsFunc()
+	{
+		return this.wrapJsFunc;
+	}
+	
+	public void setWrapJsFunc(final BiFunction<ChartContainer, String, String> wrapJsFunc)
+	{
+		this.wrapJsFunc = Objects.requireNonNull(wrapJsFunc);
+	}
+	
+	public BiConsumer<ChartContainer, String> getExecuteJsFunc()
+	{
+		return this.executeJsFunc;
+	}
+	
+	public void setExecuteJsFunc(final BiConsumer<ChartContainer, String> executeJsFunc)
+	{
+		this.executeJsFunc = Objects.requireNonNull(executeJsFunc);
+	}
+	
 	// endregion
 }
