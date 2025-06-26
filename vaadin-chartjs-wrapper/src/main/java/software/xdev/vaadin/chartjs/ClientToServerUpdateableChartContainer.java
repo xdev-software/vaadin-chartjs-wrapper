@@ -43,7 +43,7 @@ public abstract class ClientToServerUpdateableChartContainer extends ChartContai
 	/**
 	 * Tries to run a client-side update via a script-tag.
 	 * <p>
-	 * When the script was executed once it's automatically removed.
+	 * The script will only be executed once.
 	 * </p>
 	 */
 	public ClientToServerUpdateableChartContainer scheduleUpdateViaScript()
