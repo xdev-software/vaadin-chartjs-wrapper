@@ -17,7 +17,7 @@ For more and detailed usage examples please have a look at [the demo](./vaadin-c
 ### Minimal
 
 ```java
-// Assumes that this code is in some kind of Vaadin component
+// Assumes that this code is in some kind of Vaadin component or view
 
 ChartContainer chart = new ChartContainer();
 this.add(chart);
