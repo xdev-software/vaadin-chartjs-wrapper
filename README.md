@@ -6,13 +6,35 @@
 
 # <img src="https://www.chartjs.org/media/logo.svg" height="38" /> Chart.js Wrapper for Vaadin
 
-A Chart.js 4+ Wrapper for Vaadin
+A [Chart.js](https://www.chartjs.org/) 4+ Wrapper for Vaadin
 
 ![demo](assets/demo.png)
 
 ## Usage
 
-0. You may want to use a Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>Otherwise you have to write the JSON yourself.
+For more and detailed usage examples please have a look at [the demo](./vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
+
+### Minimal
+
+```java
+// Assumes that this code is in some kind of Vaadin component
+
+ChartContainer chart = new ChartContainer();
+this.add(chart);
+
+chart.showChart(
+  "{\"data\":{\"labels\":[\"A\",\"B\"],\"datasets\":[{\"data\":[1,2],\"label\":\"X\"}]},\"type\":\"bar\"}");
+```
+
+### Recommended
+
+Recommended actions:
+1. Use a Java model of Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>
+Otherwise you have to write the JSON yourself.
+2. Optionally derive classes for your charts (from e.g. ``ChartContainer``) that also handle the data-to-JSON conversion logic.<br/>
+Therefore you can encapsulate the components properly, for example like this: ``FetchFromBackendService.class → Model for chart → ChartContainer.class → Build JSON and show chart``
+
+How the code could look:
 1. Define a custom chart or use the ``showChart``-method directly.<br/>Example:
     ```java
     public class ExampleChartContainer extends ChartContainer
@@ -62,8 +84,6 @@ A Chart.js 4+ Wrapper for Vaadin
       }	
     }
     ```
-
-For more usage examples please have a look at [the demo](./vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
 
 ## Installation
 [Installation guide for the latest release](https://github.com/xdev-software/vaadin-chartjs-wrapper/releases/latest#Installation)

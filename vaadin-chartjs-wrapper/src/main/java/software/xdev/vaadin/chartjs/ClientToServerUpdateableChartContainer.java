@@ -23,15 +23,15 @@ import software.xdev.vaadin.chartjs.resources.js.src.ChartClientToServerUpdater;
 
 
 /**
- * Diagram that is updated by the client side when it becomes visible.
+ * Diagram that is updated by the client/browser side when it becomes visible/added to the DOM.
  * <p>
- * This can be used in e.g. Grids with renderers where not every Chart might be rendered instantly
+ * This can be used in e.g. Grids with renderers where not every Chart might be rendered instantly due to lazy loading.
  * </p>
  *
  * @implNote internal/original: TIMELINE-709/2020-09-01
  */
 @JsModule(ChartClientToServerUpdater.LOCATION)
-@SuppressWarnings("java:S110") // Tell that to Vaadin, not me
+@SuppressWarnings("java:S110") // Caused by Vaadin design
 public abstract class ClientToServerUpdateableChartContainer extends ChartContainer
 {
 	@ClientCallable

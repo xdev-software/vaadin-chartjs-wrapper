@@ -41,7 +41,7 @@ import software.xdev.vaadin.chartjs.resources.js.src.ChartThemeManager;
 @JsModule(ChartControlFunc.LOCATION)
 @CssImport(ChartContainerStyles.LOCATION)
 @SuppressWarnings("java:S1948") // UI classes will never be serialized due to security
-public abstract class ChartContainer extends Div implements ChartCom
+public class ChartContainer extends Div implements ChartCom
 {
 	protected Component loading = new DefaultLoadingLoadComponent();
 	protected Component error = new DefaultLoadingErrorComponent();
@@ -55,7 +55,7 @@ public abstract class ChartContainer extends Div implements ChartCom
 	protected BiConsumer<ChartContainer, String> executeJsFunc =
 		(self, js) -> self.getElement().executeJs(js);
 	
-	protected ChartContainer()
+	public ChartContainer()
 	{
 		this.loading.addClassName(ChartContainerStyles.LOADING_COMPONENT_CLASS);
 		this.error.addClassName(ChartContainerStyles.ERROR_COMPONENT_CLASS);

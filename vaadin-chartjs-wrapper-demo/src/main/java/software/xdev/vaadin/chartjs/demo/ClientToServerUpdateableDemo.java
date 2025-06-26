@@ -86,7 +86,7 @@ public class ClientToServerUpdateableDemo extends VerticalLayout
 			.toJson();
 	}
 	
-	@SuppressWarnings("java:S110") // Not caused by us!
+	@SuppressWarnings("java:S110")
 	static class BrokenChartContainer extends ChartContainer
 	{
 		public BrokenChartContainer(final int value, final int max)
@@ -96,7 +96,7 @@ public class ClientToServerUpdateableDemo extends VerticalLayout
 	}
 	
 	
-	@SuppressWarnings("java:S110") // Not caused by us!
+	@SuppressWarnings("java:S110")
 	static class WorkingChartContainer extends ClientToServerUpdateableChartContainer
 	{
 		private final String payload;
