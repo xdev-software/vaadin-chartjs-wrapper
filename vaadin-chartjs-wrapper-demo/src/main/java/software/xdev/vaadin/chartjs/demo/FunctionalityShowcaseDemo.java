@@ -21,6 +21,7 @@ import software.xdev.vaadin.chartjs.ChartContainer;
 import software.xdev.vaadin.chartjs.resources.js.src.ChartThemeManager;
 
 
+@SuppressWarnings("PMD.AvoidCommonPoolForFutureAsync")
 @Route(FunctionalityShowcaseDemo.NAV)
 public class FunctionalityShowcaseDemo extends VerticalLayout
 {
