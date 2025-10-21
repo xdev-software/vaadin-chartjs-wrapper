@@ -14,6 +14,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 import software.xdev.vaadin.chartjs.demo.ClientToServerUpdateableDemo;
+import software.xdev.vaadin.chartjs.demo.DateAdapterDemo;
 import software.xdev.vaadin.chartjs.demo.FunctionalityShowcaseDemo;
 import software.xdev.vaadin.chartjs.demo.MinimalisticDemo;
 
@@ -66,6 +67,11 @@ public class DemoView extends Composite<VerticalLayout>
 				ClientToServerUpdateableDemo.NAV,
 				"Client to Server updateable",
 				"Shows how charts can be dynamically requested by the client e.g. when using a Grid."
+			),
+			new Example(
+				DateAdapterDemo.NAV,
+				"DateAdapter",
+				"Shows how a date adapter can be used."
 			)
 		));
 	}
