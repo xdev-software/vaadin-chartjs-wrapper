@@ -6,12 +6,12 @@
 
 	<parent>
 		<groupId>software.xdev</groupId>
-		<artifactId>template-placeholder-root</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<artifactId>vaadin-chartjs-wrapper-root</artifactId>
+		<version>1.0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>template-placeholder-demo</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>vaadin-chartjs-wrapper-demo</artifactId>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -95,8 +95,14 @@
 		</dependency>
 		<dependency>
 			<groupId>software.xdev</groupId>
-			<artifactId>template-placeholder</artifactId>
+			<artifactId>vaadin-chartjs-wrapper</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>software.xdev</groupId>
+			<artifactId>chartjs-java-model</artifactId>
+			<version>2.8.1</version>
 		</dependency>
 
 		<!-- Spring -->
