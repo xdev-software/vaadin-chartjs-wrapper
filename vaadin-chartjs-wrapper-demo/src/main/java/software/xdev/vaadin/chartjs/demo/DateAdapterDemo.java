@@ -17,7 +17,6 @@ import software.xdev.vaadin.chartjs.ChartContainer;
 
 
 @NpmPackage(value = "date-fns", version = "4.1.0")
-@JsModule("date-fns/index.js")
 @JsModule("./lib/chartjs-adapter-date-fns.js")
 @Route(DateAdapterDemo.NAV)
 public class DateAdapterDemo extends VerticalLayout
