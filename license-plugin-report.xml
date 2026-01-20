@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<licensePluginReport goal="FORMAT" timestamp="1768897353261">
+    <module artifactId="vaadin-chartjs-wrapper" groupId="software.xdev" version="2.0.0"/>
+    <files>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/ChartCom.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/ChartContainer.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/ChartContainerStyles.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/ClientToServerUpdateableChartContainer.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/loading/DefaultLoadingErrorComponent.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/loading/DefaultLoadingLoadComponent.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/loading/LoadingErrorComponent.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/loading/LoadingStyles.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/resources/js/JSLibs.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/resources/js/src/ChartClientToServerUpdater.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/resources/js/src/ChartControlFunc.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/resources/js/src/ChartJSSources.java" result="NOOP"/>
+        <file path="src/main/java/software/xdev/vaadin/chartjs/resources/js/src/ChartThemeManager.java" result="NOOP"/>
+    </files>
+</licensePluginReport>
