@@ -97,6 +97,13 @@ Therefore you can encapsulate the components properly, for example like this: ``
 ## Installation
 [Installation guide for the latest release](https://github.com/xdev-software/vaadin-chartjs-wrapper/releases/latest#Installation)
 
+#### Compatibility with Vaadin
+
+| Vaadin version | DateRangePicker version |
+| --- | --- |
+| Vaadin 25+ (latest) | ``2+`` |
+| Vaadin 24 | ``1.x`` |
+
 ### Spring-Boot
 * You may have to include ``software/xdev`` inside [``vaadin.allowed-packages``](https://vaadin.com/docs/latest/integrations/spring/configuration#configure-the-scanning-of-packages)
 
