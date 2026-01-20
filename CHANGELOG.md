@@ -1,4 +1,5 @@
 # 2.0.0
+_Initial release for Vaadin 25_
 * Updated to Vaadin 25
 
 # 1.0.1
