@@ -1,5 +1,5 @@
 # Delay install of newly released packages to prevent supply chain attacks
-minimumReleaseAge: 180
+minimumReleaseAge: 180 # 3h
 overrides:
   # Remove unused packages
   # glob CLI unused
