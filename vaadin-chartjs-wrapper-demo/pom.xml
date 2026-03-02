@@ -6,12 +6,12 @@
 
 	<parent>
 		<groupId>software.xdev</groupId>
-		<artifactId>template-placeholder-root</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<artifactId>vaadin-chartjs-wrapper-root</artifactId>
+		<version>2.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>template-placeholder-demo</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<artifactId>vaadin-chartjs-wrapper-demo</artifactId>
+	<version>2.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<organization>
@@ -83,8 +83,14 @@
 
 		<dependency>
 			<groupId>software.xdev</groupId>
-			<artifactId>template-placeholder</artifactId>
+			<artifactId>vaadin-chartjs-wrapper</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>software.xdev</groupId>
+			<artifactId>chartjs-java-model</artifactId>
+			<version>3.0.0</version>
 		</dependency>
 
 		<!-- Spring -->
@@ -172,19 +178,6 @@
 		</profile>
 		<profile>
 			<id>production</id>
-			<dependencies>
-				<!-- Exclude development dependencies from production -->
-				<dependency>
-					<groupId>com.vaadin</groupId>
-					<artifactId>vaadin-core</artifactId>
-					<exclusions>
-						<exclusion>
-							<groupId>com.vaadin</groupId>
-							<artifactId>vaadin-dev</artifactId>
-						</exclusion>
-					</exclusions>
-				</dependency>
-			</dependencies>
 			<build>
 				<plugins>
 					<plugin>
