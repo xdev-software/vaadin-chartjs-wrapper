@@ -90,7 +90,7 @@
 		<dependency>
 			<groupId>software.xdev</groupId>
 			<artifactId>chartjs-java-model</artifactId>
-			<version>3.0.0</version>
+			<version>3.0.1</version>
 		</dependency>
 
 		<!-- Spring -->
