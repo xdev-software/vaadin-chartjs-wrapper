@@ -89,7 +89,7 @@ public class ClientToServerUpdateableDemo extends VerticalLayout
 	@SuppressWarnings("java:S110")
 	static class BrokenChartContainer extends ChartContainer
 	{
-		public BrokenChartContainer(final int value, final int max)
+		BrokenChartContainer(final int value, final int max)
 		{
 			this.showChart(buildChartPayload(value, max));
 		}
@@ -101,7 +101,7 @@ public class ClientToServerUpdateableDemo extends VerticalLayout
 	{
 		private final String payload;
 		
-		public WorkingChartContainer(final int value, final int max)
+		WorkingChartContainer(final int value, final int max)
 		{
 			this.payload = buildChartPayload(value, max);
 			
