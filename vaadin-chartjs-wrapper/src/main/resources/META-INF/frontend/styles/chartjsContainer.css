@@ -1,0 +1,12 @@
+.chartjs-diagram {
+    position: relative;
+}
+
+.chartjs-diagram-problem-indicator {
+    color: var(--lumo-error-color);
+    position: absolute;
+	left: 0;
+	top: 0;
+	margin-left: 0.5em;
+	cursor: help;
+}

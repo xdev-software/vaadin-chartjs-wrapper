@@ -1,0 +1,60 @@
+.load-container {
+	justify-content: center;
+	align-items: center;
+}
+
+.load-error-icon {
+	color: var(--lumo-error-color);
+}
+
+.load-error-title {
+	color: var(--lumo-error-color);
+	font-weight: bolder;
+}
+
+.load-error-msg {
+	font-weight: lighter;
+	display: block;
+}
+
+.loader-clock {
+    font-size: 100%;
+    width: 3em;
+    height: 3em;
+    background: transparent;
+    border: 5px solid var(--lumo-contrast-70pct);
+    border-radius: 50%;
+    position: relative;
+ }
+.loader-clock:after, .loader-clock:before{
+    position: absolute;
+    content: '';
+    background: var(--lumo-contrast-50pct);
+    border-radius: 50%;
+}
+.loader-clock:after{
+    width: 1.3em;
+    height: .15em;
+    top: 1.45em;
+    left: 1.45em;
+    transform-origin: .1em .1em;
+    animation: minutehand .75s linear infinite;
+}
+
+.loader-clock:before{
+    width: 1em;
+    height: .2em;
+    top: 1.45em;
+    left: 1.45em;
+    transform-origin: .1em .1em;
+    animation: hourhand 6s linear infinite;
+}
+
+@keyframes minutehand{
+    0% {transform:rotate(0deg)}
+    100% {transform:rotate(360deg)}
+}
+@keyframes hourhand{
+    0% {transform:rotate(0deg)}
+    100% {transform:rotate(360deg)}
+}
