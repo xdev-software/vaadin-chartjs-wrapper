@@ -2,6 +2,7 @@
 * Updated to Vaadin 25.3
 * Updated bundled Chart.js to 4.5.1
 * Internally restructured project
+* Updated dependencies
 
 # 2.0.1
 * Update to Vaadin 25.2
