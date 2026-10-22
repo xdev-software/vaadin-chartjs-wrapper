@@ -1,3 +1,7 @@
+# 2.1.0
+* Updated to Vaadin 25.3
+* Internally restructured project
+
 # 2.0.1
 * Update to Vaadin 25.2
 * Migrated resources from deprecated location
