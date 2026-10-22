@@ -16,7 +16,7 @@ import software.xdev.chartjs.model.options.scale.cartesian.time.TimeScaleOptions
 import software.xdev.vaadin.chartjs.ChartContainer;
 
 
-@NpmPackage(value = "date-fns", version = "4.1.0")
+@NpmPackage(value = "date-fns", version = "4.4.0")
 @JsModule("./lib/chartjs-adapter-date-fns.js")
 @Route(DateAdapterDemo.NAV)
 public class DateAdapterDemo extends VerticalLayout
