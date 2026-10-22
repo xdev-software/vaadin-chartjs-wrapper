@@ -10,7 +10,7 @@
 		<version>2.0.2-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>template-placeholder-demo</artifactId>
+	<artifactId>vaadin-chartjs-wrapper-demo</artifactId>
 	<packaging>jar</packaging>
 
 	<properties>

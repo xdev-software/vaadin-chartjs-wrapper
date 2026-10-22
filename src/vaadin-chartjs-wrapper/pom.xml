@@ -10,11 +10,11 @@
 		<version>1.0.0-SNAPSHOT</version>
 	</parent>
 	
-	<artifactId>template-placeholder</artifactId>
+	<artifactId>vaadin-chartjs-wrapper</artifactId>
 	<packaging>jar</packaging>
 
-	<name>template-placeholder</name>
-	<description>template-placeholder</description>
+	<name>vaadin-chartjs-wrapper</name>
+	<description>vaadin-chartjs-wrapper</description>
 
 	<dependencies>
 		<dependency>
