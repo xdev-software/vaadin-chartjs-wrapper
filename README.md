@@ -35,10 +35,10 @@ chart.showChart(new BarChart(new BarData()
 
 ### Recommended
 
-1. Use a Java model of Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>
+1. Use a Java model of Chart.js's configuration, like [XDEV's chartjs-java-model](https://github.com/xdev-software/chartjs-java-model).<br/>
 Otherwise you have to write the JSON yourself.
-2. Optionally derive classes for your charts (from e.g. ``ChartContainer``) that also handle the data-to-JSON conversion logic.<br/>
-Therefore you can encapsulate the components properly, for example like this: ``FetchFromBackendService.class → Model for chart → ChartContainer.class → Build JSON and show chart``
+2. Optionally derive classes for your charts (from e.g. `ChartContainer`) that also handle the data-to-JSON conversion logic.<br/>
+Therefore you can encapsulate the components properly, for example like this: `FetchFromBackendService.class → Model for chart → ChartContainer.class → Build JSON and show chart`
 
 <details><summary>Here is a example how the code could look (click to expand)</summary>
 
