@@ -7,10 +7,10 @@
 	<parent>
 		<groupId>software.xdev</groupId>
 		<artifactId>demos</artifactId>
-		<version>1.0.0-SNAPSHOT</version>
+		<version>2.1.0-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>template-placeholder-demo</artifactId>
+	<artifactId>vaadin-chartjs-wrapper-demo</artifactId>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -79,8 +79,14 @@
 
 		<dependency>
 			<groupId>software.xdev</groupId>
-			<artifactId>template-placeholder</artifactId>
+			<artifactId>vaadin-chartjs-wrapper</artifactId>
 			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>software.xdev</groupId>
+			<artifactId>chartjs-java-model</artifactId>
+			<version>3.0.2</version>
 		</dependency>
 
 		<!-- Spring -->
