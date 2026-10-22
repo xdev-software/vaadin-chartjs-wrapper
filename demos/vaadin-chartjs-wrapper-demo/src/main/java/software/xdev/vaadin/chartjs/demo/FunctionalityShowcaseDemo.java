@@ -45,7 +45,12 @@ public class FunctionalityShowcaseDemo extends VerticalLayout
 					this.chart.show();
 					this.chart.showProblemsIndicator("Failed to load some data because ...");
 				}),
-				new Button("Error", ev -> this.chart.showFailed("Something went wrong"))
+				new Button(
+					"Error",
+					ev -> this.chart.showFailed("Something went wrong")),
+				new Button(
+					"Error (a lot of text)",
+					ev -> this.chart.showFailed("error ".repeat(500)))
 			),
 			new Checkbox(
 				"DarkMode (requires chart rebuild)", ev -> {

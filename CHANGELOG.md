@@ -1,4 +1,7 @@
 # 2.1.0
+* `DefaultLoadingErrorComponent` now truncates long error messages (>1000) with ellpsis (`...`)
+  * When the component is hovered the complete message will still be shown
+  * The value can be adjusted programmatically
 * Updated to Vaadin 25.3
 * Updated bundled Chart.js to 4.5.1
 * Internally restructured project

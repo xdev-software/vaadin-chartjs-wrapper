@@ -27,7 +27,10 @@ import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 @CssImport(LoadingStyles.LOCATION)
 public class DefaultLoadingErrorComponent extends Composite<VerticalLayout> implements HasStyle, LoadingErrorComponent
 {
-	private final Span spanMsg = new Span();
+	protected static final int DEFAULT_ERROR_MSG_LENGTH_USE_ELLPSIS = 1000;
+	
+	protected int errorMsgLengthUseEllpsis = DEFAULT_ERROR_MSG_LENGTH_USE_ELLPSIS;
+	protected final Span spanMsg = new Span();
 	
 	public DefaultLoadingErrorComponent()
 	{
@@ -61,11 +64,26 @@ public class DefaultLoadingErrorComponent extends Composite<VerticalLayout> impl
 		
 		if(errorMessage == null || errorMessage.isBlank())
 		{
+			this.spanMsg.setTitle(null);
 			this.spanMsg.setVisible(false);
 			return;
 		}
 		
 		this.spanMsg.setVisible(true);
-		this.spanMsg.setText(errorMessage);
+		
+		this.spanMsg.setText(errorMessage.length() >= this.errorMsgLengthUseEllpsis
+			? errorMessage.substring(0, this.errorMsgLengthUseEllpsis) + "..."
+			: errorMessage);
+		this.spanMsg.setTitle(errorMessage);
+	}
+	
+	public int getErrorMsgLengthUseEllpsis()
+	{
+		return this.errorMsgLengthUseEllpsis;
+	}
+	
+	public void setErrorMsgLengthUseEllpsis(final int errorMsgLengthUseEllpsis)
+	{
+		this.errorMsgLengthUseEllpsis = errorMsgLengthUseEllpsis;
 	}
 }
