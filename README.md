@@ -11,7 +11,7 @@ A [Chart.js](https://www.chartjs.org/) 4+ Wrapper for Vaadin
 
 ## Usage
 
-For more and detailed usage examples please have a look at [the demo](./vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
+For more and detailed usage examples please have a look at [the demo](./demos/vaadin-chartjs-wrapper-demo/src/main/java/software/xdev/vaadin/chartjs/demo/).
 
 ### Minimal
 
